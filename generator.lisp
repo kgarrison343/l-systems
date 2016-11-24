@@ -14,3 +14,7 @@
   (if (= 0 iterations)
       axiom
       (iterate-l-string (generate-l-string axiom rules) rules (- iterations 1))))
+
+(defun output-l-string (axiom rules iterations)
+  (with-open-file (l-file "l-file" :direction :output :if-exists :supersede)
+    (write-line (iterate-l-string axiom rules iterations) l-file)))
