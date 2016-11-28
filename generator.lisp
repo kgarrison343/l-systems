@@ -1,7 +1,7 @@
 (load "utilities.lisp")
 
 (defun apply-rules (c rules)
-  "Takes a char c and a list of rules and iterates throughthe list to apply any valid rule to the char. Rules are of the form (start-string end-string)."
+  "Takes a char c and a list of rules and iterates through the list to apply any valid rule to the char. Rules are of the form (start-string end-string)."
   (if rules
       (if (string= c (caar rules))
 	  (second (first rules))
