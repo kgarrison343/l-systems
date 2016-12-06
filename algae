@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+   echo $0: usage: algae axiom generations
+   exit 1
+fi
+
+axiom=$1
+generations=$2
+
+sbcl --noinform --load generator.lisp --eval '(output-l-string "'$axiom'" (quote (("a" "ab") ("b" "a"))) '$generations')' --quit
+
+cat l-file
